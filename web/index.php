@@ -16,10 +16,13 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 ));
 
 // Our web handlers
-
 $app->get('/', function() use($app) {
   $app['monolog']->addDebug('logging output.');
-  return $app['twig']->render('index.twig');
+  //return $app['twig']->render('index.twig');
+  return $app['twig']->render('hello.html', [
+    'name' => 'Karim',
+    'age' => 52
+  ]);
 });
 
 $app->run();
