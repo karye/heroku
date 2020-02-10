@@ -1,28 +1,14 @@
-<?php
-
-require('../vendor/autoload.php');
-
-$app = new Silex\Application();
-$app['debug'] = true;
-
-// Register the monolog logging service
-$app->register(new Silex\Provider\MonologServiceProvider(), array(
-  'monolog.logfile' => 'php://stderr',
-));
-
-// Register view rendering
-$app->register(new Silex\Provider\TwigServiceProvider(), array(
-    'twig.path' => __DIR__.'/views',
-));
-
-// Our web handlers
-$app->get('/', function() use($app) {
-  $app['monolog']->addDebug('logging output.');
-  //return $app['twig']->render('index.twig');
-  return $app['twig']->render('hello.twig', [
-    'name' => 'Karim',
-    'age' => 52
-  ]);
-});
-
-$app->run();
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <?php
+    echo "<p>Testar Heroku!</p>";
+    ?>
+</body>
+</html>
