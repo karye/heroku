@@ -48,7 +48,7 @@ include_once "../config/config.php";
             while ($row = pg_fetch_assoc($result)) {
                 echo "<article>";
                 echo "<h4>" . $row['rubrik'] . "</h4>";
-                echo "<h5>" . $row['datum'] . "</h5>";
+                echo "<h5>" . $row['tidstampel'] . "</h5>";
                 echo "<p>" . $row['inlagg'] . "</p>";
                 echo "</article>";
             }
