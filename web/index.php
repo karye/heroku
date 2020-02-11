@@ -36,8 +36,7 @@ include_once "../config/config.php";
             id SERIAL PRIMARY KEY,
             rubrik varchar(100),
             inlagg text NOT NULL,
-            tidstampel timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-            PRIMARY KEY (id)
+            tidstampel timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
           ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;";
 
         $result = pg_query($conn, $sql);
