@@ -47,12 +47,12 @@ include_once "../config/config.php";
             echo "<p>47: Query executed succesfully!</p>";
         }
 
-        //$sql = "SELECT * FROM blogg";
-        $sql = "INSERT INTO blogg VALUES 
+        $sql = "SELECT * FROM blogg";
+/*         $sql = "INSERT INTO blogg VALUES 
         (1, 'Besök av rektor','Ingrid tittar på en webblektion idag'),
         (2, 'Tränat hämta från databas','Idag har vi tränat att hämta data frånn en tabell.\r\nSamma 4 steg som tidigare. Sen SQL satsen &#34;SELECT * FROM blog&#34;.'),
         (3, 'Fredag','Idag ska vi implementera en fritextsökning.'),
-        (4, 'Fredag','Idag ska vi också implementera ett lösenordsskydd på admin! ');";
+        (4, 'Fredag','Idag ska vi också implementera ett lösenordsskydd på admin! ');"; */
         $result = pg_query($conn, $sql);
         if (!$result) {
             echo "<p>54: An error occurred: </p>" . pg_last_error($conn);
