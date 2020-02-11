@@ -30,19 +30,19 @@ include_once "../config/config.php";
             echo "<p>Ansluta till databasen.</p>";
         }
 
-        $sql = "SELECT * FROM blogg";
+        $sql = "CREATE TABLE IF NOT EXISTS blogg (
+            id SERIAL PRIMARY KEY,
+            rubrik varchar(100),
+            inlagg text NOT NULL,
+            tidstampel timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+        )";
+
         $result = pg_query($conn, $sql);
         if (!$result) {
             echo "<p>Något blev fel med SQL: </p>" . pg_last_error($conn);
             exit;
         } else {
-            echo "<p>Data har hämtats från tabellen.</p>";
-        }
-
-        while ($row = pg_fetch_assoc($result)) {
-            echo "<p>" . $row['rubrik']. "</p>"; 
-            echo "<p>" . $row['inlagg'] . "</p>";
-            echo "<p>" . $row['tidstampel'] . "</p>";
+            echo "<p>Tabellen kunde inte skapas.</p>";
         }
         ?>
     </div>

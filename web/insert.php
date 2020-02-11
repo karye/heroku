@@ -30,21 +30,19 @@ include_once "../config/config.php";
             echo "<p>Ansluta till databasen.</p>";
         }
 
-        $sql = "SELECT * FROM blogg";
+        $sql = "INSERT INTO blogg VALUES
+        (1, 'Besök av rektor','Ingrid tittar på en webblektion idag'),
+        (2, 'Tränat hämta från databas','Idag har vi tränat att hämta data frånn en tabell.\r\nSamma 4 steg som tidigare. Sen SQL satsen &#34;SELECT * FROM blog&#34;.'),
+        (3, 'Fredag','Idag ska vi implementera en fritextsökning.'),
+        (4, 'Fredag','Idag ska vi också implementera ett lösenordsskydd på admin! ')";
         $result = pg_query($conn, $sql);
         if (!$result) {
             echo "<p>Något blev fel med SQL: </p>" . pg_last_error($conn);
             exit;
         } else {
-            echo "<p>Data har hämtats från tabellen.</p>";
+            echo "<p>Data har registrerats i tabellen.</p>";
         }
-
-        while ($row = pg_fetch_assoc($result)) {
-            echo "<p>" . $row['rubrik']. "</p>"; 
-            echo "<p>" . $row['inlagg'] . "</p>";
-            echo "<p>" . $row['tidstampel'] . "</p>";
-        }
-        ?>
+?>
     </div>
 </body>
 </html>
