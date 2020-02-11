@@ -44,7 +44,7 @@ include_once "../config/config.php";
             echo "<p>45: An error occurred: </p>" . pg_last_error($conn);
             exit;
         } else {
-            echo "<p>Query executed succesfully!</p>";
+            echo "<p>47: Query executed succesfully!</p>";
         }
 
         $sql = "SELECT * FROM blogg";
@@ -53,8 +53,9 @@ include_once "../config/config.php";
             echo "<p>54: An error occurred: </p>" . pg_last_error($conn);
             exit;
         } else {
-            echo "<p>Query executed succesfully!</p>";
+            echo "<p>56: Query executed succesfully!</p>";
         }
+        var_dump($result);
 
         while ($row = pg_fetch_assoc($result)) {
             echo "<p>" . $row['rubrik']. "</p>"; 
