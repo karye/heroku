@@ -1,7 +1,7 @@
 <?php
 /*
  * PHP version 7
- * @category   Lånekalkylator
+ * @category   Blogg i databas
  * @author     Karim Ryde <karye.webb@gmail.com>
  * @license    PHP CC
  */
@@ -19,32 +19,43 @@ include_once "../config/config.php";
 </head>
 <body>
     <div class="container">
-        <h1>Testar Heroku</h1>
-        <?php
-        echo "<p>Testar Heroku!</p>";
+        <h1 class="display-4">Bloggen</h1>
+        <nav>
+            <ul class="nav nav-tabs">
+                <li class="nav-item"><a class="nav-link active" href="./index.php">Läsa</a></li>
+                <li class="nav-item"><a class="nav-link" href="./insert.php">Skriva</a></li>
+                <li class="nav-item"><a class="nav-link" href="./table.php">Skapa tabell</a></li>
+            </ul>
+        </nav>
+        <main>
+            <?php
+            if (!$conn) {
+                echo "<p>Kunde ej ansluta till databasen: </p>" . pg_last_error($conn);
+                exit;
+            } else {
+                echo "<p>Ansluta till databasen.</p>";
+            }
 
-        if (!$conn) {
-            echo "<p>Kunde ej ansluta till databasen: </p>" . pg_last_error($conn);
-            exit;
-        } else {
-            echo "<p>Ansluta till databasen.</p>";
-        }
+            $sql = "SELECT * FROM blogg";
+            $result = pg_query($conn, $sql);
+            if (!$result) {
+                echo "<p>Något blev fel med SQL: </p>" . pg_last_error($conn);
+                exit;
+            } else {
+                echo "<p>Data har hämtats från tabellen.</p>";
+            }
 
-        $sql = "SELECT * FROM blogg";
-        $result = pg_query($conn, $sql);
-        if (!$result) {
-            echo "<p>Något blev fel med SQL: </p>" . pg_last_error($conn);
-            exit;
-        } else {
-            echo "<p>Data har hämtats från tabellen.</p>";
-        }
-
-        while ($row = pg_fetch_assoc($result)) {
-            echo "<p>" . $row['rubrik']. "</p>"; 
-            echo "<p>" . $row['inlagg'] . "</p>";
-            echo "<p>" . $row['tidstampel'] . "</p>";
-        }
-        ?>
+            while ($row = pg_fetch_assoc($result)) {
+                echo "<article>";
+                echo "<h4>" . $row['rubrik'] . "</h4>";
+                echo "<h5>" . $row['datum'] . "</h5>";
+                echo "<p>" . $row['inlagg'] . "</p>";
+                echo "</article>";
+            }
+            /* Stäng ned databasanslutningen */
+            $conn->close();
+            ?>
+        </main>
     </div>
 </body>
 </html>
