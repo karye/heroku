@@ -1,4 +1,4 @@
-$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+$url = parse_url(getenv("DATABASE_URL"));
 $server = $url["host"];
 $username = $url["user"];
 $password = $url["pass"];
@@ -10,3 +10,5 @@ $config = array(
     'pw' => $password,
     'db' => $db 
 );
+
+$conn = pg_connect(getenv("DATABASE_URL"));

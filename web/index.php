@@ -1,3 +1,13 @@
+<?php
+/*
+ * PHP version 7
+ * @category   Lånekalkylator
+ * @author     Karim Ryde <karye.webb@gmail.com>
+ * @license    PHP CC
+ */
+
+include_once "../config/config.php";
+?>
 <!DOCTYPE html>
 <html lang="sv">
 <head>
@@ -12,6 +22,24 @@
         <h1>Testar Heroku</h1>
         <?php
         echo "<p>Testar Heroku!</p>";
+
+        var_dump($config);
+
+        if (!$conn) {
+            echo "An error occurred.\n";
+            exit;
+        }
+
+        $result = pg_query($conn, "SELECT author, email FROM authors");
+        if (!$result) {
+            echo "An error occurred.\n";
+            exit;
+        }
+
+        while ($row = pg_fetch_row($result)) {
+            echo "Author: $row[0]  E-mail: $row[1]";
+            echo "<br>\n";
+        }
         ?>
     </div>
 </body>
