@@ -26,14 +26,18 @@ include_once "../config/config.php";
         var_dump($config);
 
         if (!$conn) {
-            echo "An error occurred.\n";
+            echo "<p>An error occurred: </p>" . pg_last_error($dbconn);
             exit;
+        } else {
+            echo "<p>Connected to db!</p>";
         }
 
         $result = pg_query($conn, "SELECT author, email FROM authors");
         if (!$result) {
-            echo "An error occurred.\n";
+            echo "<p>An error occurred: </p>" . pg_last_error($dbconn);
             exit;
+        } else {
+            echo "<p>Query executed succesfully!</p>";
         }
 
         while ($row = pg_fetch_row($result)) {
