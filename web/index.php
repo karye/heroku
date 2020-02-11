@@ -32,7 +32,24 @@ include_once "../config/config.php";
             echo "<p>Connected to db!</p>";
         }
 
-        $result = pg_query($conn, "SELECT author, email FROM authors");
+        $sql = "CREATE TABLE IF NOT EXISTS blogg (
+            id int(11) NOT NULL AUTO_INCREMENT,
+            rubrik varchar(100),
+            inlagg text NOT NULL,
+            tidstampel timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            PRIMARY KEY (id)
+          ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;";
+
+        $result = pg_query($conn, $sql);
+        if (!$result) {
+            echo "<p>An error occurred: </p>" . pg_last_error($dbconn);
+            exit;
+        } else {
+            echo "<p>Query executed succesfully!</p>";
+        }
+
+        $sql = "SELECT * FROM blogg";
+        $result = pg_query($conn, $sql);
         if (!$result) {
             echo "<p>An error occurred: </p>" . pg_last_error($dbconn);
             exit;
