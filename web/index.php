@@ -26,7 +26,7 @@ include_once "../config/config.php";
         //var_dump($config);
 
         if (!$conn) {
-            echo "<p>29: An error occurred: </p>" . pg_last_error($dbconn);
+            echo "<p>29: An error occurred: </p>" . pg_last_error($conn);
             exit;
         } else {
             echo "<p>Connected to db!</p>";
@@ -42,7 +42,7 @@ include_once "../config/config.php";
 
         $result = pg_query($conn, $sql);
         if (!$result) {
-            echo "<p>45: An error occurred: </p>" . pg_last_error($dbconn);
+            echo "<p>45: An error occurred: </p>" . pg_last_error($conn);
             exit;
         } else {
             echo "<p>Query executed succesfully!</p>";
@@ -51,7 +51,7 @@ include_once "../config/config.php";
         $sql = "SELECT * FROM blogg";
         $result = pg_query($conn, $sql);
         if (!$result) {
-            echo "<p>54: An error occurred: </p>" . pg_last_error($dbconn);
+            echo "<p>54: An error occurred: </p>" . pg_last_error($conn);
             exit;
         } else {
             echo "<p>Query executed succesfully!</p>";
