@@ -49,10 +49,10 @@ include_once "../config/config.php";
 
         //$sql = "SELECT * FROM blogg";
         $sql = "INSERT INTO blogg VALUES 
-        ('Besök av rektor','Ingrid tittar på en webblektion idag'),
-        ('Tränat hämta från databas','Idag har vi tränat att hämta data frånn en tabell.\r\nSamma 4 steg som tidigare. Sen SQL satsen &#34;SELECT * FROM blog&#34;.'),
-        ('Fredag','Idag ska vi implementera en fritextsökning.'),
-        ('Fredag','Idag ska vi också implementera ett lösenordsskydd på admin! ');";
+        (1, 'Besök av rektor','Ingrid tittar på en webblektion idag'),
+        (2, 'Tränat hämta från databas','Idag har vi tränat att hämta data frånn en tabell.\r\nSamma 4 steg som tidigare. Sen SQL satsen &#34;SELECT * FROM blog&#34;.'),
+        (3, 'Fredag','Idag ska vi implementera en fritextsökning.'),
+        (4, 'Fredag','Idag ska vi också implementera ett lösenordsskydd på admin! ');";
         $result = pg_query($conn, $sql);
         if (!$result) {
             echo "<p>54: An error occurred: </p>" . pg_last_error($conn);
