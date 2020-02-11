@@ -56,9 +56,9 @@ include_once "../config/config.php";
             echo "<p>Query executed succesfully!</p>";
         }
 
-        while ($row = pg_fetch_row($result)) {
-            echo "Author: $row[0]  E-mail: $row[1]";
-            echo "<br>\n";
+        while ($row = pg_fetch_assoc($result)) {
+            echo "<p>" . $row['rubrik']. "</p>"; 
+            echo "<p>" . $row['inlagg'] . "</p>";
         }
         ?>
     </div>
