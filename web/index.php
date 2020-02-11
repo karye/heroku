@@ -33,7 +33,7 @@ include_once "../config/config.php";
         }
 
         $sql = "CREATE TABLE IF NOT EXISTS blogg (
-            id int(11) NOT NULL AUTO_INCREMENT,
+            id SERIAL PRIMARY KEY,
             rubrik varchar(100),
             inlagg text NOT NULL,
             tidstampel timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
