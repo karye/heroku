@@ -72,7 +72,7 @@ include_once "../config/config.php";
                 echo "Cookie named 'user' is not set!";
             } else {
                 echo "Cookie 'user' is set!<br>";
-                echo "Value is: " . $_COOKIE[$cookie_value];
+                echo "Value is: " . $_COOKIE["user"];
             }
         ?>
         </main>
