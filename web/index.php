@@ -48,9 +48,10 @@ include_once "../config/config.php";
             while ($row = pg_fetch_assoc($result)) {
                 echo "<article>";
                 echo "<h4>" . $row['rubrik'] . "</h4>";
-                echo "<h5>" . date("Y-m-d H:i:s", $row['tidstampel']) . "</h5>";
+                echo "<h5>" . date("Y-m-d H:i:s", strtotime($row['tidstampel'])) . "</h5>";
                 echo "<p>" . $row['inlagg'] . "</p>";
                 echo "</article>";
+                var_dump($row);
             }
             /* Stäng ned databasanslutningen */
             $conn->close();
