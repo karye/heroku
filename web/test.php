@@ -7,6 +7,10 @@
  */
 
 include_once "../config/config.php";
+
+$cookie_name = "user";
+$cookie_value = "John Doe";
+setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
 ?>
 <!DOCTYPE html>
 <html lang="sv">
@@ -28,14 +32,7 @@ include_once "../config/config.php";
                 <li class="nav-item"><a class="nav-link active" href="./test.php">Test</a></li>
             </ul>
         </nav>
-        <section>
-            <?php
-            $cookie_name = "user";
-            $cookie_value = "John Doe";
-            setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
-            ?>
-        </section>
-        <section>
+        <main>
         <?php
             if (!isset($_COOKIE[$cookie_name])) {
                 echo "Cookie named '" . $cookie_name . "' is not set!";
@@ -44,7 +41,7 @@ include_once "../config/config.php";
                 echo "Value is: " . $_COOKIE[$cookie_name];
             }
             ?>
-        </section>
+        </main>
     </div>
 </body>
 </html>
