@@ -47,7 +47,7 @@ include_once "../config/config.php";
                     echo "<p>Kunde ej ansluta till databasen: </p>" . pg_last_error($conn);
                     exit;
                 } else {
-                    echo "<p>Ansluta till databasen.</p>";
+                    echo "<p>Ansluten till databasen.</p>";
                 }
 
                 $sql = "INSERT INTO blogg VALUES

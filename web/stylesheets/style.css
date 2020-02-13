@@ -7,7 +7,7 @@ body {
     width: 600px;
     padding: 2em;
     margin: 3em auto;
-    background: #5f8087ed;
+    background: #a0caa9;
     border-radius: 1em;
     font-family: 'Lato', sans-serif;
     border: 1px solid #ddd;
@@ -37,9 +37,6 @@ h1, h2, h3 {
     font-family: 'Zhi Mang Xing', cursive;
     text-transform: uppercase;
     text-align: center;
-}
-h1, h2, h3, p {
-    margin: 0.5em 0;
 }
 main {
     padding: 1em;

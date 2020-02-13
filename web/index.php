@@ -33,7 +33,7 @@ include_once "../config/config.php";
                 echo "<p>Kunde ej ansluta till databasen: </p>" . pg_last_error($conn);
                 exit;
             } else {
-                echo "<p>Ansluta till databasen.</p>";
+                echo "<p>Ansluten till databasen.</p>";
             }
 
             $sql = "SELECT * FROM blogg";
@@ -48,7 +48,7 @@ include_once "../config/config.php";
             while ($row = pg_fetch_assoc($result)) {
                 echo "<article>";
                 echo "<h4>" . $row['rubrik'] . "</h4>";
-                echo "<h5>" . $row['tidstampel'] . "</h5>";
+                echo "<h5>" . strftime("Y-m-d H:i:s", $row['tidstampel']) . "</h5>";
                 echo "<p>" . $row['inlagg'] . "</p>";
                 echo "</article>";
             }

@@ -33,7 +33,7 @@ include_once "../config/config.php";
                 echo "<p>Kunde ej ansluta till databasen: </p>" . pg_last_error($conn);
                 exit;
             } else {
-                echo "<p>Ansluta till databasen.</p>";
+                echo "<p>Ansluten till databasen.</p>";
             }
 
             $sql = "CREATE TABLE IF NOT EXISTS blogg (
@@ -48,7 +48,7 @@ include_once "../config/config.php";
                 echo "<p>Något blev fel med SQL: </p>" . pg_last_error($conn);
                 exit;
             } else {
-                echo "<p>Tabellen kunde inte skapas.</p>";
+                echo "<p>Tabellen har skapats.</p>";
             }
             /* Stäng ned databasanslutningen */
             $conn->close();
