@@ -66,13 +66,13 @@ include_once "../config/config.php";
 
                 /* Stäng ned databasanslutningen */
                 $conn->close();
+            }
 
-                if (!isset($_COOKIE["user"])) {
-                    echo "Cookie named 'user' is not set!";
-                } else {
-                    echo "Cookie 'user' is set!<br>";
-                    echo "Value is: " . $_COOKIE[$cookie_value];
-                }
+            if (!isset($_COOKIE["user"])) {
+                echo "Cookie named 'user' is not set!";
+            } else {
+                echo "Cookie 'user' is set!<br>";
+                echo "Value is: " . $_COOKIE[$cookie_value];
             }
         ?>
         </main>
