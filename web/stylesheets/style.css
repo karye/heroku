@@ -1,17 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Lato|Zhi+Mang+Xing|Source+Sans+Pro&display=swap');
 
-/* Enkel CSS-reset */
-html {
-    box-sizing: border-box;
-}
-*, *:before, *:after {
-    box-sizing: inherit;
-}
-
 body {
     background: #F9F6EB url("./bilder/bg.jpg");
 }
-.kontainer {
+.container {
     width: 600px;
     padding: 2em;
     margin: 3em auto;
