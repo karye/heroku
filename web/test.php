@@ -24,37 +24,27 @@ include_once "../config/config.php";
             <ul class="nav nav-tabs">
                 <li class="nav-item"><a class="nav-link" href="./index.php">Läsa</a></li>
                 <li class="nav-item"><a class="nav-link" href="./insert.php">Skriva</a></li>
-                <li class="nav-item"><a class="nav-link active" href="./table.php">Skapa tabell</a></li>
-                <li class="nav-item"><a class="nav-link" href="./test.php">Test</a></li>
+                <li class="nav-item"><a class="nav-link" href="./table.php">Skapa tabell</a></li>
+                <li class="nav-item"><a class="nav-link active" href="./test.php">Test</a></li>
             </ul>
         </nav>
-        <main>
+        <section>
             <?php
-            if (!$conn) {
-                echo "<p>Kunde ej ansluta till databasen: </p>" . pg_last_error($conn);
-                exit;
-            } else {
-                echo "<p>Ansluten till databasen.</p>";
-            }
-
-            $sql = "CREATE TABLE IF NOT EXISTS blogg (
-                        id SERIAL PRIMARY KEY,
-                        rubrik varchar(100),
-                        inlagg text NOT NULL,
-                        tidstampel timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-                    )";
-
-            $result = pg_query($conn, $sql);
-            if (!$result) {
-                echo "<p>Något blev fel med SQL: </p>" . pg_last_error($conn);
-                exit;
-            } else {
-                echo "<p>Tabellen har skapats.</p>";
-            }
-            /* Stäng ned databasanslutningen */
-            $conn->close();
+            $cookie_name = "user";
+            $cookie_value = "John Doe";
+            setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
             ?>
-        </main>
+        </section>
+        <section>
+        <?php
+            if (!isset($_COOKIE[$cookie_name])) {
+                echo "Cookie named '" . $cookie_name . "' is not set!";
+            } else {
+                echo "Cookie '" . $cookie_name . "' is set!<br>";
+                echo "Value is: " . $_COOKIE[$cookie_name];
+            }
+            ?>
+        </section>
     </div>
 </body>
 </html>

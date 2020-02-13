@@ -25,6 +25,7 @@ include_once "../config/config.php";
                 <li class="nav-item"><a class="nav-link" href="./index.php">Läsa</a></li>
                 <li class="nav-item"><a class="nav-link active" href="./insert.php">Skriva</a></li>
                 <li class="nav-item"><a class="nav-link" href="./table.php">Skapa tabell</a></li>
+                <li class="nav-item"><a class="nav-link" href="./test.php">test</a></li>
             </ul>
         </nav>
         <main>

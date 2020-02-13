@@ -25,6 +25,7 @@ include_once "../config/config.php";
                 <li class="nav-item"><a class="nav-link active" href="./index.php">Läsa</a></li>
                 <li class="nav-item"><a class="nav-link" href="./insert.php">Skriva</a></li>
                 <li class="nav-item"><a class="nav-link" href="./table.php">Skapa tabell</a></li>
+                <li class="nav-item"><a class="nav-link" href="./test.php">Test</a></li>
             </ul>
         </nav>
         <main>
@@ -48,10 +49,9 @@ include_once "../config/config.php";
             while ($row = pg_fetch_assoc($result)) {
                 echo "<article>";
                 echo "<h4>" . $row['rubrik'] . "</h4>";
-                echo "<h5>" . date("Y-m-d H:i:s", strtotime($row['tidstampel'])) . "</h5>";
+                echo "<h5>" . date("d/m/Y H:i:s", strtotime($row['tidstampel'])) . "</h5>";
                 echo "<p>" . $row['inlagg'] . "</p>";
                 echo "</article>";
-                var_dump($row);
             }
             /* Stäng ned databasanslutningen */
             $conn->close();
