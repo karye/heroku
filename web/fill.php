@@ -29,21 +29,7 @@ include_once "../config/config.php";
             </ul>
         </nav>
         <main>
-            <form class="kol2b" action="#" method="post">
-                <label>Rubrik</label>
-                <input type="text" name="rubrik" required>
-                <label>Inlägg</label>
-                <textarea class="form-control" name="inlagg" id="inlagg" cols="30" rows="10" required></textarea>
-                <button class="btn btn-primary">Spara inlägg</button>
-            </form>
             <?php
-            /* Ta emot text från formuläret och spara ned i en textfil. */
-            $rubrik = filter_input(INPUT_POST, 'rubrik', FILTER_SANITIZE_STRING);
-            $inlagg = filter_input(INPUT_POST, 'inlagg', FILTER_SANITIZE_STRING);
-
-            /* Om data finns.. */
-            if ($rubrik && $inlagg) {
-
                 if (!$conn) {
                     echo "<p>Kunde ej ansluta till databasen: </p>" . pg_last_error($conn);
                     exit;
