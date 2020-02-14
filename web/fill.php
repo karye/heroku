@@ -30,37 +30,29 @@ include_once "../config/config.php";
         </nav>
         <main>
             <?php
-                if (!$conn) {
-                    echo "<p>Kunde ej ansluta till databasen: </p>" . pg_last_error($conn);
-                    exit;
-                } else {
-                    echo "<p>Ansluten till databasen.</p>";
-                }
-
-                $sql = "INSERT INTO blogg (rubrik, inlagg) VALUES
-                ('Besök av rektor','Ingrid tittar på en webblektion idag'),
-                ('Tränat hämta från databas','Idag har vi tränat att hämta data frånn en tabell.\r\nSamma 4 steg som tidigare. Sen SQL satsen &#34;SELECT * FROM blog&#34;.'),
-                ('Fredag','Idag ska vi implementera en fritextsökning.'),
-                ('Fredag','Idag ska vi också implementera ett lösenordsskydd på admin! ')";
-                $result = pg_query($conn, $sql);
-                if (!$result) {
-                    echo "<p>Något blev fel med SQL: </p>" . pg_last_error($conn);
-                    exit;
-                } else {
-                    echo "<p>Data har registrerats i tabellen blogg.</p>";
-                }
-
-                /* Stäng ned databasanslutningen */
-                $conn->close();
-            }
-
-            if (!isset($_COOKIE["user"])) {
-                echo "Cookie named 'user' is not set!";
+            if (!$conn) {
+                echo "<p>Kunde ej ansluta till databasen: </p>" . pg_last_error($conn);
+                exit;
             } else {
-                echo "Cookie 'user' is set!<br>";
-                echo "Value is: " . $_COOKIE["user"];
+                echo "<p>Ansluten till databasen.</p>";
             }
-        ?>
+
+            $sql = "INSERT INTO blogg (rubrik, inlagg) VALUES
+            ('Besök av rektor','Ingrid tittar på en webblektion idag'),
+            ('Tränat hämta från databas','Idag har vi tränat att hämta data frånn en tabell.\r\nSamma 4 steg som tidigare. Sen SQL satsen &#34;SELECT * FROM blog&#34;.'),
+            ('Fredag','Idag ska vi implementera en fritextsökning.'),
+            ('Fredag','Idag ska vi också implementera ett lösenordsskydd på admin! ')";
+            $result = pg_query($conn, $sql);
+            if (!$result) {
+                echo "<p>Något blev fel med SQL: </p>" . pg_last_error($conn);
+                exit;
+            } else {
+                echo "<p>Data har registrerats i tabellen blogg.</p>";
+            }
+
+            /* Stäng ned databasanslutningen */
+            $conn->close();
+            ?>
         </main>
     </div>
 </body>

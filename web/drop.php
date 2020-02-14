@@ -29,28 +29,26 @@ include_once "../config/config.php";
             </ul>
         </nav>
         <main>
-
             <?php
-                if (!$conn) {
-                    echo "<p>Kunde ej ansluta till databasen: </p>" . pg_last_error($conn);
-                    exit;
-                } else {
-                    echo "<p>Ansluten till databasen.</p>";
-                }
-
-                $sql = "DROP TABLE blogg";
-                $result = pg_query($conn, $sql);
-                if (!$result) {
-                    echo "<p>Något blev fel med SQL: </p>" . pg_last_error($conn);
-                    exit;
-                } else {
-                    echo "<p>Tabellen blogg har raderats.</p>";
-                }
-
-                /* Stäng ned databasanslutningen */
-                $conn->close();
+            if (!$conn) {
+                echo "<p>Kunde ej ansluta till databasen: </p>" . pg_last_error($conn);
+                exit;
+            } else {
+                echo "<p>Ansluten till databasen.</p>";
             }
-        ?>
+
+            $sql = "DROP TABLE blogg";
+            $result = pg_query($conn, $sql);
+            if (!$result) {
+                echo "<p>Något blev fel med SQL: </p>" . pg_last_error($conn);
+                exit;
+            } else {
+                echo "<p>Tabellen blogg har raderats.</p>";
+            }
+
+            /* Stäng ned databasanslutningen */
+            $conn->close();
+            ?>
         </main>
     </div>
 </body>
