@@ -49,7 +49,7 @@ include_once "../config/config.php";
                 echo "<p>Något blev fel med SQL: </p>" . pg_last_error($conn);
                 exit;
             } else {
-                echo "<p>Tabellen har skapats.</p>";
+                echo "<p>Tabellen blogg har skapats.</p>";
             }
             /* Stäng ned databasanslutningen */
             $conn->close();

@@ -51,13 +51,13 @@ include_once "../config/config.php";
                     echo "<p>Ansluten till databasen.</p>";
                 }
 
-                $sql = "INSERT INTO blogg (rubrik, inlagg) VALUES ('$rubrik', '$inlagg')";
+                $sql = "DROP TABLE blogg)";
                 $result = pg_query($conn, $sql);
                 if (!$result) {
-                    echo "<p>Något blev fel med SQL: " . pg_last_error($conn). "</p>";
+                    echo "<p>Något blev fel med SQL: </p>" . pg_last_error($conn);
                     exit;
                 } else {
-                    echo "<p>Data har registrerats i tabellen blogg.</p>";
+                    echo "<p>Tabellen blogg har raderats.</p>";
                 }
 
                 /* Stäng ned databasanslutningen */

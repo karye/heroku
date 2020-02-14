@@ -43,7 +43,7 @@ include_once "../config/config.php";
                 echo "<p>Något blev fel med SQL: </p>" . pg_last_error($conn);
                 exit;
             } else {
-                echo "<p>Data har hämtats från tabellen.</p>";
+                echo "<p>Data har hämtats från tabellen blogg.</p>";
             }
 
             while ($row = pg_fetch_assoc($result)) {
