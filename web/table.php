@@ -39,8 +39,8 @@ include_once "../config/config.php";
 
             $sql = "CREATE TABLE IF NOT EXISTS blogg (
                         id SERIAL PRIMARY KEY,
-                        rubrik varchar(100),
-                        inlagg text NOT NULL,
+                        rubrik CHAR(100) NOT NULL,
+                        inlagg TEXT NOT NULL,
                         tidstampel timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
                     )";
 

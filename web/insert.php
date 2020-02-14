@@ -51,7 +51,7 @@ include_once "../config/config.php";
                     echo "<p>Ansluten till databasen.</p>";
                 }
 
-                $sql = "INSERT INTO blogg VALUES ('$rubrik','$inlagg')";
+                $sql = "INSERT INTO blogg (rubrik, inlagg) VALUES ('$rubrik','$inlagg')";
                 $result = pg_query($conn, $sql);
                 if (!$result) {
                     echo "<p>Något blev fel med SQL: </p>" . pg_last_error($conn);
