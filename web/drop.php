@@ -51,7 +51,7 @@ include_once "../config/config.php";
                     echo "<p>Ansluten till databasen.</p>";
                 }
 
-                $sql = "DROP TABLE blogg)";
+                $sql = "DROP TABLE blogg";
                 $result = pg_query($conn, $sql);
                 if (!$result) {
                     echo "<p>Något blev fel med SQL: </p>" . pg_last_error($conn);
@@ -62,13 +62,6 @@ include_once "../config/config.php";
 
                 /* Stäng ned databasanslutningen */
                 $conn->close();
-            }
-
-            if (!isset($_COOKIE["user"])) {
-                echo "Cookie named 'user' is not set!";
-            } else {
-                echo "Cookie 'user' is set!<br>";
-                echo "Value is: " . $_COOKIE["user"];
             }
         ?>
         </main>
