@@ -17,23 +17,23 @@ $inlagg = filter_input(INPUT_POST, 'inlagg', FILTER_SANITIZE_STRING);
 if ($rubrik && $inlagg) {
 
     if (!$conn) {
-        echo "Kunde ej ansluta till databasen: " . pg_last_error($conn) . "\n";
+        echo "\nKunde ej ansluta till databasen: " . pg_last_error($conn);
         exit;
     } else {
-        echo "Ansluten till databasen.\n";
+        echo "\nAnsluten till databasen.";
     }
 
     $sql = "INSERT INTO blogg (rubrik, inlagg) VALUES ('$rubrik', '$inlagg')";
     $result = pg_query($conn, $sql);
     if (!$result) {
-        echo "Något blev fel med SQL: " . pg_last_error($conn) . "\n";
+        echo "\nNågot blev fel med SQL: " . pg_last_error($conn);
         exit;
     } else {
-        echo "Data har registrerats i tabellen blogg.\n";
+        echo "\nData har registrerats i tabellen blogg.";
     }
 
     /* Stäng ned databasanslutningen */
     $conn->close();
 } else {
-    echo "Data saknas.\n";
+    echo "\nData saknas.";
 }
