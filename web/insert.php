@@ -61,7 +61,7 @@ include_once "../config/config.php";
                 }
 
                 /* Stäng ned databasanslutningen */
-                $conn->close();
+                pg_close($conn);
             }
 
             if (!isset($_COOKIE["user"])) {

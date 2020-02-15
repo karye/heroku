@@ -33,7 +33,7 @@ if ($rubrik && $inlagg) {
     }
 
     /* Stäng ned databasanslutningen */
-    $conn->close();
+    pg_close($conn);
 } else {
     echo "\nData saknas.";
 }

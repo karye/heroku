@@ -54,7 +54,7 @@ include_once "../config/config.php";
                 echo "</article>";
             }
             /* Stäng ned databasanslutningen */
-            $conn->close();
+            pg_close($conn);
             ?>
         </main>
     </div>

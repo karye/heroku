@@ -52,7 +52,7 @@ include_once "../config/config.php";
                 echo "<p>Tabellen blogg har skapats.</p>";
             }
             /* Stäng ned databasanslutningen */
-            $conn->close();
+            pg_close($conn);
 
             if (!isset($_COOKIE["user"])) {
                 echo "Cookie named 'user' is not set!";
