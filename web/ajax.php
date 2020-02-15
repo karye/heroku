@@ -34,5 +34,5 @@ if ($rubrik && $inlagg) {
     /* Stäng ned databasanslutningen */
     $conn->close();
 } else {
-    echo "Data saknas.\n"
+    echo "Data saknas.\n";
 }
