@@ -6,6 +6,7 @@
  * @license    PHP CC
  */
 
+header('Access-Control-Allow-Origin: *');
 include_once "../config/config.php";
 
 /* Ta emot text från formuläret och spara ned i en textfil. */
