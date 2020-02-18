@@ -6,8 +6,7 @@
  * @license    PHP CC
  */
 
-include_once "../config/config.php";
-?>
+include_once '../config/config.php'; ?>
 <!DOCTYPE html>
 <html lang="sv">
 <head>
@@ -31,19 +30,20 @@ include_once "../config/config.php";
         <main>
             <?php
             if (!$conn) {
-                echo "<p>Kunde ej ansluta till databasen: </p>" . pg_last_error($conn);
-                exit;
+                echo '<p>Kunde ej ansluta till databasen: </p>' .
+                    pg_last_error($conn);
+                exit();
             } else {
-                echo "<p>Ansluten till databasen.</p>";
+                echo '<p>Ansluten till databasen.</p>';
             }
 
-            $sql = "DROP TABLE blogg";
+            $sql = 'DROP TABLE blogg';
             $result = pg_query($conn, $sql);
             if (!$result) {
-                echo "<p>Något blev fel med SQL: </p>" . pg_last_error($conn);
-                exit;
+                echo '<p>Något blev fel med SQL: </p>' . pg_last_error($conn);
+                exit();
             } else {
-                echo "<p>Tabellen blogg har raderats.</p>";
+                echo '<p>Tabellen blogg har raderats.</p>';
             }
 
             /* Stäng ned databasanslutningen */

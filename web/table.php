@@ -6,8 +6,7 @@
  * @license    PHP CC
  */
 
-include_once "../config/config.php";
-?>
+include_once '../config/config.php'; ?>
 <!DOCTYPE html>
 <html lang="sv">
 <head>
@@ -31,10 +30,11 @@ include_once "../config/config.php";
         <main>
             <?php
             if (!$conn) {
-                echo "<p>Kunde ej ansluta till databasen: </p>" . pg_last_error($conn);
-                exit;
+                echo '<p>Kunde ej ansluta till databasen: </p>' .
+                    pg_last_error($conn);
+                exit();
             } else {
-                echo "<p>Ansluten till databasen.</p>";
+                echo '<p>Ansluten till databasen.</p>';
             }
 
             $sql = "CREATE TABLE IF NOT EXISTS blogg (
@@ -46,19 +46,19 @@ include_once "../config/config.php";
 
             $result = pg_query($conn, $sql);
             if (!$result) {
-                echo "<p>Något blev fel med SQL: </p>" . pg_last_error($conn);
-                exit;
+                echo '<p>Något blev fel med SQL: </p>' . pg_last_error($conn);
+                exit();
             } else {
-                echo "<p>Tabellen blogg har skapats.</p>";
+                echo '<p>Tabellen blogg har skapats.</p>';
             }
             /* Stäng ned databasanslutningen */
             pg_close($conn);
 
-            if (!isset($_COOKIE["user"])) {
+            if (!isset($_COOKIE['user'])) {
                 echo "Cookie named 'user' is not set!";
             } else {
                 echo "Cookie 'user' is set!<br>";
-                echo "Value is: " . $_COOKIE["user"];
+                echo 'Value is: ' . $_COOKIE['user'];
             }
             ?>
         </main>

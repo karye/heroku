@@ -6,8 +6,7 @@
  * @license    PHP CC
  */
 
-include_once "../config/config.php";
-?>
+include_once '../config/config.php'; ?>
 <!DOCTYPE html>
 <html lang="sv">
 <head>
@@ -31,10 +30,11 @@ include_once "../config/config.php";
         <main>
             <?php
             if (!$conn) {
-                echo "<p>Kunde ej ansluta till databasen: </p>" . pg_last_error($conn);
-                exit;
+                echo '<p>Kunde ej ansluta till databasen: </p>' .
+                    pg_last_error($conn);
+                exit();
             } else {
-                echo "<p>Ansluten till databasen.</p>";
+                echo '<p>Ansluten till databasen.</p>';
             }
 
             $sql = "INSERT INTO blogg (rubrik, inlagg) VALUES
@@ -44,10 +44,10 @@ include_once "../config/config.php";
             ('Fredag','Idag ska vi också implementera ett lösenordsskydd på admin! ')";
             $result = pg_query($conn, $sql);
             if (!$result) {
-                echo "<p>Något blev fel med SQL: </p>" . pg_last_error($conn);
-                exit;
+                echo '<p>Något blev fel med SQL: </p>' . pg_last_error($conn);
+                exit();
             } else {
-                echo "<p>Data har registrerats i tabellen blogg.</p>";
+                echo '<p>Data har registrerats i tabellen blogg.</p>';
             }
 
             /* Stäng ned databasanslutningen */

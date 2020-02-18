@@ -6,8 +6,7 @@
  * @license    PHP CC
  */
 
-include_once "../config/config.php";
-?>
+include_once '../config/config.php'; ?>
 <!DOCTYPE html>
 <html lang="sv">
 <head>
@@ -38,39 +37,49 @@ include_once "../config/config.php";
             </form>
             <?php
             /* Ta emot text från formuläret och spara ned i en textfil. */
-            $rubrik = filter_input(INPUT_POST, 'rubrik', FILTER_SANITIZE_STRING);
-            $inlagg = filter_input(INPUT_POST, 'inlagg', FILTER_SANITIZE_STRING);
+            $rubrik = filter_input(
+                INPUT_POST,
+                'rubrik',
+                FILTER_SANITIZE_STRING
+            );
+            $inlagg = filter_input(
+                INPUT_POST,
+                'inlagg',
+                FILTER_SANITIZE_STRING
+            );
 
             /* Om data finns.. */
             if ($rubrik && $inlagg) {
-
                 if (!$conn) {
-                    echo "<p>Kunde ej ansluta till databasen: </p>" . pg_last_error($conn);
-                    exit;
+                    echo '<p>Kunde ej ansluta till databasen: </p>' .
+                        pg_last_error($conn);
+                    exit();
                 } else {
-                    echo "<p>Ansluten till databasen.</p>";
+                    echo '<p>Ansluten till databasen.</p>';
                 }
 
                 $sql = "INSERT INTO blogg (rubrik, inlagg) VALUES ('$rubrik', '$inlagg')";
                 $result = pg_query($conn, $sql);
                 if (!$result) {
-                    echo "<p>Något blev fel med SQL: " . pg_last_error($conn). "</p>";
-                    exit;
+                    echo '<p>Något blev fel med SQL: ' .
+                        pg_last_error($conn) .
+                        '</p>';
+                    exit();
                 } else {
-                    echo "<p>Data har registrerats i tabellen blogg.</p>";
+                    echo '<p>Data har registrerats i tabellen blogg.</p>';
                 }
 
                 /* Stäng ned databasanslutningen */
                 pg_close($conn);
             }
 
-            if (!isset($_COOKIE["user"])) {
+            if (!isset($_COOKIE['user'])) {
                 echo "Cookie named 'user' is not set!";
             } else {
                 echo "Cookie 'user' is set!<br>";
-                echo "Value is: " . $_COOKIE["user"];
+                echo 'Value is: ' . $_COOKIE['user'];
             }
-        ?>
+            ?>
         </main>
     </div>
 </body>

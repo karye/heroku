@@ -6,11 +6,13 @@
  * @license    PHP CC
  */
 
-include_once "../config/config.php";
+include_once '../config/config.php';
 
-$cookie_name = "user";
-$cookie_value = "John Doe";
-setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+$cookie_name = 'user';
+$cookie_value = 'John Doe';
+setcookie($cookie_name, $cookie_value, time() + 86400 * 30, '/');
+
+// 86400 = 1 day
 ?>
 <!DOCTYPE html>
 <html lang="sv">
@@ -33,14 +35,12 @@ setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1
             </ul>
         </nav>
         <main>
-        <?php
-            if (!isset($_COOKIE["user"])) {
-                echo "Cookie named 'user' is not set!";
-            } else {
-                echo "Cookie 'user' is set!<br>";
-                echo "Value is: " . $_COOKIE["user"];
-            }
-            ?>
+        <?php if (!isset($_COOKIE['user'])) {
+            echo "Cookie named 'user' is not set!";
+        } else {
+            echo "Cookie 'user' is set!<br>";
+            echo 'Value is: ' . $_COOKIE['user'];
+        } ?>
         </main>
     </div>
 </body>
