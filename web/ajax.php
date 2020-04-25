@@ -6,8 +6,8 @@
  * @license    PHP CC
  */
 
-header('Access-Control-Allow-Origin: *');
-include_once '../config/config.php';
+header("Access-Control-Allow-Origin: *");
+include_once "../config/config.php";
 
 /* Ta emot text från formuläret och spara ned i en textfil. */
 $rubrik = filter_input(INPUT_POST, 'rubrik', FILTER_SANITIZE_STRING);
