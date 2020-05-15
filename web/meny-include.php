@@ -1,6 +1,5 @@
 <?php
 $sida = basename($_SERVER['PHP_SELF'], ".php");
-var_dump($sida);
 ?>
 <ul class="nav nav-tabs">
     <li class="nav-item"><a class="nav-link <?= ($sida == 'index') ? 'active' : ''; ?>" href="./index.php">Läsa</a></li>

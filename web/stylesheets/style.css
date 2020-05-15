@@ -1,30 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;0,800;0,900;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro|Damion|Pacifico&display=swap');
+
+/* Enkel CSS-reset */
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body, h1, h2, h3, h4, h5, h6, p, ul {
+    margin: 0;
+    padding: 0;
+}
 
 body {
-    background: #f9f6eb url("./bilder/bg.jpg");
+    background: #F9F6EB;
 }
-.container {
-    width: 600px;
+.kontainer {
+    width: 700px;
     padding: 2em;
     margin: 3em auto;
-    background: #92824e;
-    border-radius: 1em;
-    font-family: "Lato", sans-serif;
+    background: #fff;
+    border-radius: 5px;
+    font-family: 'Source Sans Pro', sans-serif;
     border: 1px solid #ddd;
-    box-shadow: 0 0 12px #888374;
+    box-shadow: 0 0 12px #f0e9d1;
     color: #4e4e4e;
-    font-family: 'Montserrat', sans-serif;
 }
 .kol2 {
     margin: 1em 0;
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-gap: 1em;
-}
-.kol2b {
-    margin: 1em 0;
-    display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 4fr;
     grid-gap: 1em;
 }
 .kol3 {
@@ -33,19 +38,8 @@ body {
     grid-template-columns: 1fr 2fr 1fr;
     grid-gap: 1em;
 }
-h1, h2, h3 {
-    color: #fff;
-    text-transform: uppercase;
-    text-align: center;
-    text-shadow: 1px 1px 1px #000;
-    font-weight: bold;
-}
 main {
     padding: 1em;
-    font-size: 0.9em;
-}
-nav {
-    text-align: center;
 }
 form {
     margin: 1em 0;
@@ -55,10 +49,8 @@ label {
     text-align: right;
     align-self: center;
     font-size: 0.9em;
-    width: 100%;
 }
-input,
-textarea {
+input, textarea {
     padding: 0.7em;
     border-radius: 0.3em;
     border: 1px solid #ccc;
@@ -75,29 +67,39 @@ button {
     border-radius: 0.3em;
     border: none;
     font-weight: bold;
-    color: #fff;
+    color: #FFF;
     background-color: #55a5d2;
+}
+h1, h2, h3 {
+    color: #9c813d;
+}
+h1, h2, h3, p {
+    margin: 0.1em 0;
+}
+h1 {
+    font-family: 'Pacifico', cursive;
+}
+h3 {
+    margin-top: 2em;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 2em 0;
 }
-th,
-td {
+th, td {
     padding: 0.5em;
     text-align: left;
 }
 th {
-    background: #305a85;
-    color: #fff;
+    background: #b9b9b9;
+    color: #FFF;
 }
 tr:nth-child(even) {
-    background: #e6f2f8;
+    background: #f1f1f1;
 }
 tr:nth-child(odd) {
-    background: #fff;
+    background: #FFF;
 }
 table .fa {
     color: #55a5d2;
@@ -110,14 +112,17 @@ form img {
 }
 form label {
     display: flex;
-    align-items: center;
+    align-items:center;
 }
 form span {
     padding: 10px;
 }
-main article {
-    background: #f7f7f7;
+
+.inlagg {
+    font-family: 'Damion', cursive;
+    background: #f4fdff;
+    border: 1px solid #d0e3e6;
     padding: 1em;
-    margin: 1em;
-    border-radius: 0.5em;
+    margin-bottom: 1em;
+    border-radius: 5px;
 }
