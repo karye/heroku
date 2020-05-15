@@ -36,7 +36,7 @@ setcookie($cookie_name, $cookie_value, time() + 86400 * 30, '/');
                 echo "Cookie named 'user' is not set!";
             } else {
                 echo "Cookie 'user' is set!<br>";
-                echo 'Value is: ' . $_COOKIE['user'];
+                echo "Value is: " . $_COOKIE['user'];
             } ?>
         </main>
     </div>

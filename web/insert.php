@@ -42,12 +42,12 @@ include_once '../config/config.php'; ?>
                 $sql = "INSERT INTO blogg (rubrik, inlagg) VALUES ('$rubrik', '$inlagg')";
                 $result = pg_query($conn, $sql);
                 if (!$result) {
-                    echo '<p>Något blev fel med SQL: ' .
+                    echo "<p>Något blev fel med SQL: " .
                         pg_last_error($conn) .
-                        '</p>';
+                        "</p>";
                     exit();
                 } else {
-                    echo '<p>Data har registrerats i tabellen blogg.</p>';
+                    echo "<p>Data har registrerats i tabellen blogg.</p>";
                 }
 
                 /* Stäng ned databasanslutningen */
@@ -58,7 +58,7 @@ include_once '../config/config.php'; ?>
                 echo "Cookie named 'user' is not set!";
             } else {
                 echo "Cookie 'user' is set!<br>";
-                echo 'Value is: ' . $_COOKIE['user'];
+                echo "Value is: " . $_COOKIE['user'];
             }
             ?>
         </main>

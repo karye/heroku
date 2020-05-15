@@ -27,20 +27,22 @@ include_once '../config/config.php'; ?>
             $sql = 'SELECT * FROM blogg ORDER BY id DESC';
             $result = pg_query($conn, $sql);
             if (!$result) {
-                echo '<p>Något blev fel med SQL: </p>' . pg_last_error($conn);
+                echo "<p>Något blev fel med SQL: " .
+                        pg_last_error($conn) .
+                        "</p>";
                 exit();
             } else {
-                echo '<p>Data har hämtats från tabellen blogg.</p>';
+                echo "<p>Data har hämtats från tabellen blogg.</p>";
             }
 
             while ($row = pg_fetch_assoc($result)) {
-                echo '<article>';
-                echo '<h4>' . $row['rubrik'] . '</h4>';
-                echo '<h5>' .
+                echo "<article>";
+                echo "<h4>" . $row['rubrik'] . "</h4>";
+                echo "<h5>" .
                     date('d/m/Y H:i:s', strtotime($row['tidstampel'])) .
-                    '</h5>';
-                echo '<p>' . $row['inlagg'] . '</p>';
-                echo '</article>';
+                    "</h5>";
+                echo "<p>" . $row['inlagg'] . "</p>";
+                echo "</article>";
             }
             /* Stäng ned databasanslutningen */
             pg_close($conn);

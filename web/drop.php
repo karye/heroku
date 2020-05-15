@@ -6,7 +6,8 @@
  * @license    PHP CC
  */
 
-include_once '../config/config.php'; ?>
+include_once '../config/config.php';
+?>
 <!DOCTYPE html>
 <html lang="sv">
 
@@ -25,14 +26,23 @@ include_once '../config/config.php'; ?>
             <?php include "./meny-include.php" ?>
         </nav>
         <main>
+            <form class="kol2" action="#" method="post">
+                <h3>Är du säker att vill radera tabellen blogg?</h3>
+                <button type="submit" name="submit" class="btn btn-warning">Radera!</button>
+            </form>
             <?php
-            $sql = 'DROP TABLE blogg';
-            $result = pg_query($conn, $sql);
-            if (!$result) {
-                echo '<p>Något blev fel med SQL: </p>' . pg_last_error($conn);
-                exit();
-            } else {
-                echo '<p>Tabellen blogg har raderats.</p>';
+            /* Om data finns.. */
+            if (isset($_POST['submit'])) {
+                $sql = "DROP TABLE blogg";
+                $result = pg_query($conn, $sql);
+                if (!$result) {
+                    echo "<p>Något blev fel med SQL: " .
+                        pg_last_error($conn) .
+                        "</p>";
+                    exit();
+                } else {
+                    echo "<p>Tabellen blogg har raderats.</p>";
+                }
             }
 
             /* Stäng ned databasanslutningen */

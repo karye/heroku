@@ -35,10 +35,12 @@ include_once '../config/config.php'; ?>
 
             $result = pg_query($conn, $sql);
             if (!$result) {
-                echo '<p>Något blev fel med SQL: </p>' . pg_last_error($conn);
+                echo "<p>Något blev fel med SQL: " .
+                        pg_last_error($conn) .
+                        "</p>";
                 exit();
             } else {
-                echo '<p>Tabellen blogg har skapats.</p>';
+                echo "<p>Tabellen blogg har skapats.</p>";
             }
             /* Stäng ned databasanslutningen */
             pg_close($conn);
@@ -47,7 +49,7 @@ include_once '../config/config.php'; ?>
                 echo "Cookie named 'user' is not set!";
             } else {
                 echo "Cookie 'user' is set!<br>";
-                echo 'Value is: ' . $_COOKIE['user'];
+                echo "Value is: " . $_COOKIE['user'];
             }
             ?>
         </main>

@@ -33,10 +33,12 @@ include_once '../config/config.php'; ?>
             ('Fredag','Idag ska vi också implementera ett lösenordsskydd på admin! ')";
             $result = pg_query($conn, $sql);
             if (!$result) {
-                echo '<p>Något blev fel med SQL: </p>' . pg_last_error($conn);
+                echo "<p>Något blev fel med SQL: " .
+                        pg_last_error($conn) .
+                        "</p>";
                 exit();
             } else {
-                echo '<p>Data har registrerats i tabellen blogg.</p>';
+                echo "<p>Data har registrerats i tabellen blogg.</p>";
             }
 
             /* Stäng ned databasanslutningen */
