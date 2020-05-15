@@ -40,6 +40,8 @@ include_once '../config/config.php'; ?>
             /* Om data finns.. */
             if ($rubrik && $inlagg) {
                 $sql = "INSERT INTO blogg (rubrik, inlagg) VALUES ('$rubrik', '$inlagg')";
+
+                /* Kör SQL */
                 $result = pg_query($conn, $sql);
                 if (!$result) {
                     echo "<p>Något blev fel med SQL: " .
@@ -47,7 +49,7 @@ include_once '../config/config.php'; ?>
                         "</p>";
                     exit();
                 } else {
-                    echo "<p>Data har registrerats i tabellen blogg.</p>";
+                    echo "<p class=\"alert alert-warning\">Data har registrerats i tabellen blogg.</p>";
                 }
 
                 /* Stäng ned databasanslutningen */

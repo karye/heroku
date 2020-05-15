@@ -25,24 +25,33 @@ include_once '../config/config.php'; ?>
             <?php include "./meny-include.php" ?>
         </nav>
         <main>
+            <form action="#" method="post">
+                <h4>Är du säker att vill fylla tabellen blogg med data?</h4>
+                <button type="submit" name="submit" class="btn btn-warning">Fyll!</button>
+            </form>
             <?php
-            $sql = "INSERT INTO blogg (rubrik, inlagg) VALUES
-            ('Besök av rektor','Ingrid tittar på en webblektion idag'),
-            ('Tränat hämta från databas','Idag har vi tränat att hämta data frånn en tabell.\r\nSamma 4 steg som tidigare. Sen SQL satsen &#34;SELECT * FROM blog&#34;.'),
-            ('Fredag','Idag ska vi implementera en fritextsökning.'),
-            ('Fredag','Idag ska vi också implementera ett lösenordsskydd på admin! ')";
-            $result = pg_query($conn, $sql);
-            if (!$result) {
-                echo "<p>Något blev fel med SQL: " .
+            /* Om data finns.. */
+            if (isset($_POST['submit'])) {
+                $sql = "INSERT INTO blogg (rubrik, inlagg) VALUES
+                ('Besök av rektor','Ingrid tittar på en webblektion idag'),
+                ('Tränat hämta från databas','Idag har vi tränat att hämta data frånn en tabell.\r\nSamma 4 steg som tidigare. Sen SQL satsen &#34;SELECT * FROM blog&#34;.'),
+                ('Fredag','Idag ska vi implementera en fritextsökning.'),
+                ('Fredag','Idag ska vi också implementera ett lösenordsskydd på admin! ')";
+
+                /* Kör SQL */
+                $result = pg_query($conn, $sql);
+                if (!$result) {
+                    echo "<p>Något blev fel med SQL: " .
                         pg_last_error($conn) .
                         "</p>";
-                exit();
-            } else {
-                echo "<p>Data har registrerats i tabellen blogg.</p>";
-            }
+                    exit();
+                } else {
+                    echo "<p class=\"alert alert-warning\">Data har registrerats i tabellen blogg.</p>";
+                }
 
-            /* Stäng ned databasanslutningen */
-            pg_close($conn);
+                /* Stäng ned databasanslutningen */
+                pg_close($conn);
+            }
             ?>
         </main>
     </div>

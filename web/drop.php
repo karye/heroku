@@ -26,14 +26,16 @@ include_once '../config/config.php';
             <?php include "./meny-include.php" ?>
         </nav>
         <main>
-            <form class="kol2" action="#" method="post">
-                <h3>Är du säker att vill radera tabellen blogg?</h3>
-                <button type="submit" name="submit" class="btn btn-warning">Radera!</button>
+            <form action="#" method="post">
+                <h4>Är du säker att vill radera tabellen blogg?</h4>
+                <button type="submit" name="submit" class="btn btn-danger">Radera!</button>
             </form>
             <?php
             /* Om data finns.. */
             if (isset($_POST['submit'])) {
                 $sql = "DROP TABLE blogg";
+
+                /* Kör SQL */
                 $result = pg_query($conn, $sql);
                 if (!$result) {
                     echo "<p>Något blev fel med SQL: " .
@@ -41,7 +43,7 @@ include_once '../config/config.php';
                         "</p>";
                     exit();
                 } else {
-                    echo "<p>Tabellen blogg har raderats.</p>";
+                    echo "<p class=\"alert alert-warning\">Tabellen blogg har raderats.</p>";
                 }
             }
 

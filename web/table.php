@@ -25,31 +25,40 @@ include_once '../config/config.php'; ?>
             <?php include "./meny-include.php" ?>
         </nav>
         <main>
+            <form action="#" method="post">
+                <h4>Är du säker att vill skapa tabellen blogg?</h4>
+                <button type="submit" name="submit" class="btn btn-danger">Skapa!</button>
+            </form>
             <?php
-            $sql = "CREATE TABLE IF NOT EXISTS blogg (
+            /* Om data finns.. */
+            if (isset($_POST['submit'])) {
+                $sql = "CREATE TABLE IF NOT EXISTS blogg (
                         id SERIAL PRIMARY KEY,
                         rubrik CHAR(100) NOT NULL,
                         inlagg TEXT NOT NULL,
                         tidstampel timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
                     )";
 
-            $result = pg_query($conn, $sql);
-            if (!$result) {
-                echo "<p>Något blev fel med SQL: " .
+                /* Kör SQL */
+                $result = pg_query($conn, $sql);
+                if (!$result) {
+                    echo "<p>Något blev fel med SQL: " .
                         pg_last_error($conn) .
                         "</p>";
-                exit();
-            } else {
-                echo "<p>Tabellen blogg har skapats.</p>";
-            }
-            /* Stäng ned databasanslutningen */
-            pg_close($conn);
+                    exit();
+                } else {
+                    echo "<p class=\"alert alert-warning\">Tabellen blogg har skapats.</p>";
+                }
 
-            if (!isset($_COOKIE['user'])) {
-                echo "Cookie named 'user' is not set!";
-            } else {
-                echo "Cookie 'user' is set!<br>";
-                echo "Value is: " . $_COOKIE['user'];
+                /* Stäng ned databasanslutningen */
+                pg_close($conn);
+
+                if (!isset($_COOKIE['user'])) {
+                    echo "Cookie named 'user' is not set!";
+                } else {
+                    echo "Cookie 'user' is set!<br>";
+                    echo "Value is: " . $_COOKIE['user'];
+                }
             }
             ?>
         </main>

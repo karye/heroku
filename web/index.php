@@ -26,13 +26,15 @@ include_once '../config/config.php'; ?>
             <?php
             $sql = 'SELECT * FROM blogg ORDER BY id DESC';
             $result = pg_query($conn, $sql);
+
+            /* Kör SQL */
             if (!$result) {
                 echo "<p>Något blev fel med SQL: " .
                         pg_last_error($conn) .
                         "</p>";
                 exit();
             } else {
-                echo "<p>Data har hämtats från tabellen blogg.</p>";
+                echo "<p class=\"alert alert-warning\">Data har hämtats från tabellen blogg.</p>";
             }
 
             while ($row = pg_fetch_assoc($result)) {
@@ -44,6 +46,7 @@ include_once '../config/config.php'; ?>
                 echo "<p>" . $row['inlagg'] . "</p>";
                 echo "</article>";
             }
+
             /* Stäng ned databasanslutningen */
             pg_close($conn);
             ?>
