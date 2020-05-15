@@ -22,17 +22,12 @@ include_once '../config/config.php'; ?>
     <div class="kontainer">
         <h1 class="display-4">Bloggen</h1>
         <nav>
-            <ul class="nav nav-tabs">
-                <li class="nav-item"><a class="nav-link" href="./index.php">Läsa</a></li>
-                <li class="nav-item"><a class="nav-link active" href="./insert.php">Skriva</a></li>
-                <li class="nav-item"><a class="nav-link" href="./table.php">Skapa tabell</a></li>
-                <li class="nav-item"><a class="nav-link" href="./test.php">test</a></li>
-            </ul>
+            <?php include "./meny-include.php" ?>
         </nav>
         <main>
-            <form class="kol2b" action="#" method="post">
+            <form class="kol2" action="#" method="post">
                 <label>Rubrik</label>
-                <input type="text" name="rubrik" required>
+                <input class="form-control" type="text" name="rubrik" required>
                 <label>Inlägg</label>
                 <textarea class="form-control" name="inlagg" id="inlagg" cols="30" rows="10" required></textarea>
                 <button class="btn btn-primary">Spara inlägg</button>

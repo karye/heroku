@@ -16,6 +16,7 @@ setcookie($cookie_name, $cookie_value, time() + 86400 * 30, '/');
 ?>
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,25 +24,22 @@ setcookie($cookie_name, $cookie_value, time() + 86400 * 30, '/');
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="./stylesheets/style.css">
 </head>
+
 <body>
     <div class="kontainer">
         <h1 class="display-4">Bloggen</h1>
         <nav>
-            <ul class="nav nav-tabs">
-                <li class="nav-item"><a class="nav-link" href="./index.php">Läsa</a></li>
-                <li class="nav-item"><a class="nav-link" href="./insert.php">Skriva</a></li>
-                <li class="nav-item"><a class="nav-link" href="./table.php">Skapa tabell</a></li>
-                <li class="nav-item"><a class="nav-link active" href="./test.php">Test</a></li>
-            </ul>
+            <?php include "./meny-include.php" ?>
         </nav>
         <main>
-        <?php if (!isset($_COOKIE['user'])) {
-            echo "Cookie named 'user' is not set!";
-        } else {
-            echo "Cookie 'user' is set!<br>";
-            echo 'Value is: ' . $_COOKIE['user'];
-        } ?>
+            <?php if (!isset($_COOKIE['user'])) {
+                echo "Cookie named 'user' is not set!";
+            } else {
+                echo "Cookie 'user' is set!<br>";
+                echo 'Value is: ' . $_COOKIE['user'];
+            } ?>
         </main>
     </div>
 </body>
+
 </html>
