@@ -83,42 +83,7 @@ h3 {
     margin-top: 2em;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-th, td {
-    padding: 0.5em;
-    text-align: left;
-}
-th {
-    background: #b9b9b9;
-    color: #FFF;
-}
-tr:nth-child(even) {
-    background: #f1f1f1;
-}
-tr:nth-child(odd) {
-    background: #FFF;
-}
-table .fa {
-    color: #55a5d2;
-}
-table img {
-    width: 50px;
-}
-form img {
-    width: 30px;
-}
-form label {
-    display: flex;
-    align-items:center;
-}
-form span {
-    padding: 10px;
-}
-
-.inlagg {
+article {
     font-family: 'Damion', cursive;
     background: #f4fdff;
     border: 1px solid #d0e3e6;
