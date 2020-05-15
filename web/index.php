@@ -34,7 +34,7 @@ include_once '../config/config.php'; ?>
                         "</p>";
                 exit();
             } else {
-                echo "<p class=\"alert alert-warning\">Data har hämtats från tabellen blogg.</p>";
+                echo "<p class=\"alert alert-success\">Data har hämtats från tabellen blogg.</p>";
             }
 
             while ($row = pg_fetch_assoc($result)) {

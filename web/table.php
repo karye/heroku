@@ -25,7 +25,7 @@ include_once '../config/config.php'; ?>
             <?php include "./meny-include.php" ?>
         </nav>
         <main>
-            <form action="#" method="post">
+            <form class="alert alert-warning" action="#" method="post">
                 <h4>Är du säker att vill skapa tabellen blogg?</h4>
                 <button type="submit" name="submit" class="btn btn-danger">Skapa!</button>
             </form>
