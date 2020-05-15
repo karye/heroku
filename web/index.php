@@ -20,23 +20,10 @@ include_once '../config/config.php'; ?>
     <div class="container">
         <h1 class="display-4">Bloggen</h1>
         <nav>
-            <ul class="nav nav-tabs">
-                <li class="nav-item"><a class="nav-link active" href="./index.php">Läsa</a></li>
-                <li class="nav-item"><a class="nav-link" href="./insert.php">Skriva</a></li>
-                <li class="nav-item"><a class="nav-link" href="./table.php">Skapa tabell</a></li>
-                <li class="nav-item"><a class="nav-link" href="./test.php">Test</a></li>
-            </ul>
+        <?php include "./meny-include.php" ?>
         </nav>
         <main>
             <?php
-            if (!$conn) {
-                echo '<p>Kunde ej ansluta till databasen: </p>' .
-                    pg_last_error($conn);
-                exit();
-            } else {
-                echo '<p>Ansluten till databasen.</p>';
-            }
-
             $sql = 'SELECT * FROM blogg ORDER BY id DESC';
             $result = pg_query($conn, $sql);
             if (!$result) {

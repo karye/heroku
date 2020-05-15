@@ -29,14 +29,6 @@ include_once '../config/config.php'; ?>
         </nav>
         <main>
             <?php
-            if (!$conn) {
-                echo '<p>Kunde ej ansluta till databasen: </p>' .
-                    pg_last_error($conn);
-                exit();
-            } else {
-                echo '<p>Ansluten till databasen.</p>';
-            }
-
             $sql = "INSERT INTO blogg (rubrik, inlagg) VALUES
             ('Besök av rektor','Ingrid tittar på en webblektion idag'),
             ('Tränat hämta från databas','Idag har vi tränat att hämta data frånn en tabell.\r\nSamma 4 steg som tidigare. Sen SQL satsen &#34;SELECT * FROM blog&#34;.'),

@@ -9,6 +9,7 @@
 include_once '../config/config.php'; ?>
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,6 +17,7 @@ include_once '../config/config.php'; ?>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="./stylesheets/style.css">
 </head>
+
 <body>
     <div class="container">
         <h1 class="display-4">Bloggen</h1>
@@ -37,27 +39,11 @@ include_once '../config/config.php'; ?>
             </form>
             <?php
             /* Ta emot text från formuläret och spara ned i en textfil. */
-            $rubrik = filter_input(
-                INPUT_POST,
-                'rubrik',
-                FILTER_SANITIZE_STRING
-            );
-            $inlagg = filter_input(
-                INPUT_POST,
-                'inlagg',
-                FILTER_SANITIZE_STRING
-            );
+            $rubrik = filter_input(INPUT_POST, 'rubrik', FILTER_SANITIZE_STRING);
+            $inlagg = filter_input(INPUT_POST, 'inlagg', FILTER_SANITIZE_STRING);
 
             /* Om data finns.. */
             if ($rubrik && $inlagg) {
-                if (!$conn) {
-                    echo '<p>Kunde ej ansluta till databasen: </p>' .
-                        pg_last_error($conn);
-                    exit();
-                } else {
-                    echo '<p>Ansluten till databasen.</p>';
-                }
-
                 $sql = "INSERT INTO blogg (rubrik, inlagg) VALUES ('$rubrik', '$inlagg')";
                 $result = pg_query($conn, $sql);
                 if (!$result) {
@@ -83,4 +69,5 @@ include_once '../config/config.php'; ?>
         </main>
     </div>
 </body>
+
 </html>

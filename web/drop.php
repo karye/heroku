@@ -29,14 +29,6 @@ include_once '../config/config.php'; ?>
         </nav>
         <main>
             <?php
-            if (!$conn) {
-                echo '<p>Kunde ej ansluta till databasen: </p>' .
-                    pg_last_error($conn);
-                exit();
-            } else {
-                echo '<p>Ansluten till databasen.</p>';
-            }
-
             $sql = 'DROP TABLE blogg';
             $result = pg_query($conn, $sql);
             if (!$result) {

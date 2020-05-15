@@ -15,13 +15,6 @@ $inlagg = filter_input(INPUT_POST, 'inlagg', FILTER_SANITIZE_STRING);
 
 /* Om data finns.. */
 if ($rubrik && $inlagg) {
-    if (!$conn) {
-        echo "\nKunde ej ansluta till databasen: " . pg_last_error($conn);
-        exit();
-    } else {
-        echo "\nAnsluten till databasen.";
-    }
-
     $sql = "INSERT INTO blogg (rubrik, inlagg) VALUES ('$rubrik', '$inlagg')";
     $result = pg_query($conn, $sql);
     if (!$result) {
