@@ -72,15 +72,12 @@ button {
 }
 h1, h2, h3 {
     color: #9c813d;
-}
-h1, h2, h3, p {
     margin: 0.1em 0;
 }
 h1 {
     font-family: 'Pacifico', cursive;
-}
-h3 {
-    margin-top: 2em;
+    text-align: center;
+    margin-bottom: 0.5em;
 }
 
 article {

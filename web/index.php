@@ -17,7 +17,7 @@ include_once '../config/config.php'; ?>
     <link rel="stylesheet" href="./stylesheets/style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="kontainer">
         <h1 class="display-4">Bloggen</h1>
         <nav>
         <?php include "./meny-include.php" ?>

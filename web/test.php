@@ -24,7 +24,7 @@ setcookie($cookie_name, $cookie_value, time() + 86400 * 30, '/');
     <link rel="stylesheet" href="./stylesheets/style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="kontainer">
         <h1 class="display-4">Bloggen</h1>
         <nav>
             <ul class="nav nav-tabs">
