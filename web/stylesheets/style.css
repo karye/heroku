@@ -7,11 +7,11 @@ body {
     width: 600px;
     padding: 2em;
     margin: 3em auto;
-    background: #f7dc86;
+    background: #92824e;
     border-radius: 1em;
     font-family: "Lato", sans-serif;
     border: 1px solid #ddd;
-    box-shadow: 0 0 12px #f0e9d1;
+    box-shadow: 0 0 12px #888374;
     color: #4e4e4e;
     font-family: 'Montserrat', sans-serif;
 }
@@ -46,9 +46,6 @@ main {
 }
 nav {
     text-align: center;
-}
-nav .nav-link {
-    color: #fff;
 }
 form {
     margin: 1em 0;

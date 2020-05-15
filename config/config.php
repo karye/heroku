@@ -8,5 +8,5 @@ if (!$conn) {
         pg_last_error($conn);
     exit();
 } else {
-    echo '<p>Ansluten till databasen.</p>';
+    // echo '<p>Ansluten till databasen.</p>';
 }
