@@ -26,7 +26,7 @@ include_once '../config/config.php'; ?>
         </nav>
         <main>
             <form class="alert alert-warning" action="#" method="post">
-                <h4>Är du säker att vill fylla tabellen blogg med data?</h4>
+                <p>Är du säker att vill fylla tabellen blogg med data?</p>
                 <button type="submit" name="submit" class="btn btn-warning">Fyll!</button>
             </form>
             <?php
@@ -41,12 +41,12 @@ include_once '../config/config.php'; ?>
                 /* Kör SQL */
                 $result = pg_query($conn, $sql);
                 if (!$result) {
-                    echo "<p>Något blev fel med SQL: " .
+                    echo "<p class=\"alert alert-danger\">Något blev fel med SQL: " .
                         pg_last_error($conn) .
                         "</p>";
                     exit();
                 } else {
-                    echo "<p class=\"alert alert-warning\">Data har registrerats i tabellen blogg.</p>";
+                    echo "<p class=\"alert alert-success\">Data har registrerats i tabellen blogg.</p>";
                 }
 
                 /* Stäng ned databasanslutningen */

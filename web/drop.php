@@ -27,7 +27,7 @@ include_once '../config/config.php';
         </nav>
         <main>
             <form class="alert alert-warning" action="#" method="post">
-                <h4>Är du säker att vill radera tabellen blogg?</h4>
+                <p>Är du säker att vill radera tabellen blogg?</p>
                 <button type="submit" name="submit" class="btn btn-danger">Radera!</button>
             </form>
             <?php
@@ -38,7 +38,7 @@ include_once '../config/config.php';
                 /* Kör SQL */
                 $result = pg_query($conn, $sql);
                 if (!$result) {
-                    echo "<p>Något blev fel med SQL: " .
+                    echo "<p class=\"alert alert-danger\">Något blev fel med SQL: " .
                         pg_last_error($conn) .
                         "</p>";
                     exit();

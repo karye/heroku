@@ -26,7 +26,7 @@ include_once '../config/config.php'; ?>
         </nav>
         <main>
             <form class="alert alert-warning" action="#" method="post">
-                <h4>Är du säker att vill skapa tabellen blogg?</h4>
+                <p>Är du säker att vill skapa tabellen blogg?</p>
                 <button type="submit" name="submit" class="btn btn-danger">Skapa!</button>
             </form>
             <?php
@@ -47,7 +47,7 @@ include_once '../config/config.php'; ?>
                         "</p>";
                     exit();
                 } else {
-                    echo "<p class=\"alert alert-warning\">Tabellen blogg har skapats.</p>";
+                    echo "<p class=\"alert alert-success\">Tabellen blogg har skapats.</p>";
                 }
 
                 /* Stäng ned databasanslutningen */

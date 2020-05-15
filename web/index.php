@@ -29,7 +29,7 @@ include_once '../config/config.php'; ?>
 
             /* Kör SQL */
             if (!$result) {
-                echo "<p>Något blev fel med SQL: " .
+                echo "<p class=\"alert alert-danger\">Något blev fel med SQL: " .
                         pg_last_error($conn) .
                         "</p>";
                 exit();

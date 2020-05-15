@@ -25,7 +25,7 @@ include_once '../config/config.php'; ?>
             <?php include "./meny-include.php" ?>
         </nav>
         <main>
-            <form class="kol2" action="#" method="post">
+            <form class="kol2 alert alert-info" action="#" method="post">
                 <label>Rubrik</label>
                 <input class="form-control" type="text" name="rubrik" required>
                 <label>Inlägg</label>
@@ -44,12 +44,12 @@ include_once '../config/config.php'; ?>
                 /* Kör SQL */
                 $result = pg_query($conn, $sql);
                 if (!$result) {
-                    echo "<p>Något blev fel med SQL: " .
+                    echo "<p class=\"alert alert-danger\">Något blev fel med SQL: " .
                         pg_last_error($conn) .
                         "</p>";
                     exit();
                 } else {
-                    echo "<p class=\"alert alert-warning\">Data har registrerats i tabellen blogg.</p>";
+                    echo "<p class=\"alert alert-success\">Data har registrerats i tabellen blogg.</p>";
                 }
 
                 /* Stäng ned databasanslutningen */
